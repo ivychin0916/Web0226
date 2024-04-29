@@ -4,6 +4,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews()
     .AddNewtonsoftJson();
 
+builder.Services.AddSingleton<LineBotConfig, LineBotConfig>((s)=> new LineBotConfig
+{
+    channelSecret = builder.Configuration.GetSection("LineBot")["channelSecret"]!,
+    accessToken = builder.Configuration.GetSection("LineBot")["accessToken"]!,
+});
+ 
+builder.Services.AddSingleton<ILineService, LineService>();
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
