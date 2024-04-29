@@ -20,6 +20,17 @@ public class LineService : ILineService
             };
             return result;
         }
+
+        if (message == "cat")
+        {
+            //https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg
+            result = new List<ISendMessage>
+            {
+                new TextMessage($"不太好")
+                ,new ImageMessage("https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg","https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg")
+            };
+            return result;
+        }
         
         result = new List<ISendMessage>
         {
