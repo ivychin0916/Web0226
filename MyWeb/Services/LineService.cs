@@ -46,18 +46,24 @@ public class LineService : ILineService
         */
 
         Random rnd = new Random((int)DateTime.Now.TimeOfDay.TotalSeconds);
-        int index= rnd.Next(0, 7);
+
         string[] imageUrl = new string[]
         {
-            "https://i.imgur.com/pQSopio.png",
-            "https://i.imgur.com/352dYTW.png",
-            "https://i.imgur.com/vofyUaW.png",
-            "https://i.imgur.com/uvFnBWr.png",
-            "https://i.imgur.com/e4HcD7U.png",
-            "https://i.imgur.com/lVrr8se.png",
-            "https://i.imgur.com/y5CWKp3.png",
+            "https://i.imgur.com/pQSopio.png",//大凶
+            "https://i.imgur.com/352dYTW.png",//大吉
+            "https://i.imgur.com/vofyUaW.png",//小吉
+            "https://i.imgur.com/vofyUaW.png",//小吉
+            "https://i.imgur.com/uvFnBWr.png",//中吉
+            "https://i.imgur.com/uvFnBWr.png",//中吉
+            "https://i.imgur.com/e4HcD7U.png",//凶
+            "https://i.imgur.com/lVrr8se.png",//平
+            "https://i.imgur.com/lVrr8se.png",//平
+            "https://i.imgur.com/lVrr8se.png",//平
+            "https://i.imgur.com/y5CWKp3.png",//吉
+            "https://i.imgur.com/y5CWKp3.png",//吉
+            "https://i.imgur.com/y5CWKp3.png",//吉
         };
-
+        int index= rnd.Next(0, imageUrl.Length);
         return new List<ISendMessage>
         {
             new ImageMessage(imageUrl[index], imageUrl[index], null)
